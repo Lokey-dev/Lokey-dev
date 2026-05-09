@@ -52,7 +52,7 @@ function BroadcastHero({ countdown }: { countdown: string }) {
     <Card className="relative overflow-hidden p-6 sm:p-8">
       <div className="absolute inset-0 bg-grid bg-[size:28px_28px] opacity-20" />
       <motion.div
-        className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-arena-cyan/25 blur-3xl"
+        className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-arena-green/25 blur-3xl"
         animate={{ scale: [1, 1.16, 1], opacity: [0.45, 0.8, 0.45] }}
         transition={{ duration: 4, repeat: Infinity }}
       />
@@ -84,7 +84,7 @@ function LiveBracket() {
     <Card className="overflow-hidden p-5 sm:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-cyan">Live bracket</p>
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-green">Live bracket</p>
           <h3 className="mt-2 text-2xl font-black">Knockout progression tree</h3>
         </div>
         <Badge className="border-arena-green/40 bg-arena-green/10 text-arena-green">Animated advancement online</Badge>
@@ -110,10 +110,10 @@ function MatchNode({ match }: { match: BracketMatch }) {
       whileHover={{ y: -5, scale: 1.01 }}
       className={cn(
         "relative rounded-3xl border bg-black/30 p-4 transition",
-        match.status === "Live" ? "border-arena-cyan/55 shadow-neon" : "border-white/10",
+        match.status === "Live" ? "border-arena-green/55 shadow-neon" : "border-white/10",
       )}
     >
-      {match.status === "Live" && <div className="absolute inset-x-4 -top-px h-px bg-gradient-to-r from-transparent via-arena-cyan to-transparent" />}
+      {match.status === "Live" && <div className="absolute inset-x-4 -top-px h-px bg-gradient-to-r from-transparent via-arena-green to-transparent" />}
       <div className="mb-3 flex items-center justify-between text-xs text-white/45">
         <span>{match.map} • Lane {match.lane}</span>
         <StatusBadge status={match.status} label={match.status === "Live" ? `Live ${match.startsIn}` : match.startsIn} />
@@ -133,7 +133,7 @@ function TeamRow({ team }: { team: BracketTeam }) {
         "flex items-center justify-between rounded-2xl border px-3 py-3",
         team.status === "advanced" && "border-arena-green/45 bg-arena-green/10 text-arena-green",
         team.status === "eliminated" && "border-red-400/20 bg-red-500/10 text-white/35 line-through",
-        team.status === "playing" && "border-arena-cyan/35 bg-arena-cyan/10",
+        team.status === "playing" && "border-arena-green/35 bg-arena-green/10",
         team.status === "waiting" && "border-white/10 bg-white/5 text-white/50",
       )}
     >
@@ -148,13 +148,13 @@ function TeamTracker({ teamQuery, setTeamQuery, countdown }: { teamQuery: string
     <Card className="p-5 sm:p-6">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-purple">Where is my team?</p>
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-lime">Where is my team?</p>
           <h3 className="mt-2 text-2xl font-black">Instant tracker</h3>
         </div>
-        <Search className="text-arena-cyan" />
+        <Search className="text-arena-green" />
       </div>
       <Input className="mt-5" value={teamQuery} onChange={(event) => setTeamQuery(event.target.value)} placeholder="Enter team name or captain ID" />
-      <div className="mt-5 rounded-3xl border border-arena-cyan/25 bg-arena-cyan/10 p-5">
+      <div className="mt-5 rounded-3xl border border-arena-green/25 bg-arena-green/10 p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-sm text-white/50">Tracking</p>
@@ -180,7 +180,7 @@ function BattleRoyaleTable() {
     <Card className="overflow-hidden p-5 sm:p-6">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-cyan">Battle royale board</p>
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-green">Battle royale board</p>
           <h3 className="mt-2 text-2xl font-black">Live standings and qualification</h3>
         </div>
         <Badge>Top {qualifyingCutoff} qualify</Badge>
@@ -198,7 +198,7 @@ function BattleRoyaleTable() {
               team.qualified ? "border-arena-green/35 bg-arena-green/10" : "border-white/10 bg-white/5",
             )}
           >
-            <div className={cn("grid h-11 w-11 place-items-center rounded-2xl font-display font-black", team.rank <= 3 ? "bg-gradient-to-br from-arena-cyan to-arena-purple text-black shadow-neon" : "bg-white/10 text-white/55")}>{team.rank}</div>
+            <div className={cn("grid h-11 w-11 place-items-center rounded-2xl font-display font-black", team.rank <= 3 ? "bg-gradient-to-br from-arena-green to-arena-lime text-black shadow-neon" : "bg-white/10 text-white/55")}>{team.rank}</div>
             <div>
               <div className="flex flex-wrap items-center gap-2"><b>{team.team}</b><Badge>{team.game}</Badge>{team.qualified && <Badge className="border-arena-green/40 bg-arena-green/10 text-arena-green">Qualified</Badge>}</div>
               <p className="mt-1 text-sm text-white/50">Placement {team.placement} • {team.kills} kills • trend {team.trend}</p>
@@ -215,8 +215,8 @@ function PlayerSpotlight() {
   const mvp = playerStats[0];
   return (
     <Card className="p-5 sm:p-6">
-      <div className="rounded-3xl border border-arena-purple/30 bg-gradient-to-br from-arena-purple/20 to-arena-cyan/10 p-5">
-        <Badge className="border-arena-purple/40 bg-arena-purple/10 text-purple-100"><Flame size={14} /> Top player highlight</Badge>
+      <div className="rounded-3xl border border-arena-lime/30 bg-gradient-to-br from-arena-lime/20 to-arena-green/10 p-5">
+        <Badge className="border-arena-lime/40 bg-arena-lime/10 text-lime-100"><Flame size={14} /> Top player highlight</Badge>
         <h3 className="mt-4 text-3xl font-black">{mvp.player}</h3>
         <p className="text-white/55">{mvp.team} • {mvp.role} • MVP score {mvp.mvpScore}</p>
       </div>
@@ -225,7 +225,7 @@ function PlayerSpotlight() {
           <div key={player.player} className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-2xl border border-white/10 bg-black/25 p-3">
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/10 font-black">{index + 1}</span>
             <div><b>{player.player}</b><p className="text-xs text-white/45">{player.kills} kills • {player.assists} assists • {player.damage.toLocaleString()} dmg</p></div>
-            <Badge className="border-arena-cyan/40 bg-arena-cyan/10 text-arena-cyan">{player.mvpScore}</Badge>
+            <Badge className="border-arena-green/40 bg-arena-green/10 text-arena-green">{player.mvpScore}</Badge>
           </div>
         ))}
       </div>
@@ -238,7 +238,7 @@ function TrendingMatches() {
     <Card className="p-5 sm:p-6">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-purple">Trending matches</p>
+          <p className="text-sm font-black uppercase tracking-[0.3em] text-arena-lime">Trending matches</p>
           <h3 className="mt-2 text-2xl font-black">Spectator heat map</h3>
         </div>
         <Badge className="border-red-400/40 bg-red-500/15 text-red-100"><Radio size={14} /> Observer feed live</Badge>
@@ -249,7 +249,7 @@ function TrendingMatches() {
             <div className="flex items-center justify-between"><StatusBadge status={match.status === "Live" ? "Live" : "Upcoming"} label={match.status} /><span className="text-sm text-white/50">{match.game}</span></div>
             <h4 className="mt-4 text-xl font-black">{match.title}</h4>
             <p className="mt-2 text-sm text-white/50">{match.viewers} spectators tracking this match</p>
-            <div className="mt-5 h-2 rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-red-400 via-arena-purple to-arena-cyan" style={{ width: `${match.heat}%` }} /></div>
+            <div className="mt-5 h-2 rounded-full bg-white/10"><div className="h-full rounded-full bg-gradient-to-r from-red-400 via-arena-lime to-arena-green" style={{ width: `${match.heat}%` }} /></div>
           </motion.div>
         ))}
       </div>
@@ -263,8 +263,8 @@ function StatusBadge({ status, label }: { status: "Live" | "Completed" | "Upcomi
 
 function SignalMetric({ icon, label, value, tone }: { icon: ReactNode; label: string; value: string; tone: "cyan" | "purple" | "blue" | "green" }) {
   const tones = {
-    cyan: "border-arena-cyan/35 bg-arena-cyan/10 text-arena-cyan",
-    purple: "border-arena-purple/35 bg-arena-purple/10 text-purple-100",
+    cyan: "border-arena-green/35 bg-arena-green/10 text-arena-green",
+    purple: "border-arena-lime/35 bg-arena-lime/10 text-lime-100",
     blue: "border-arena-blue/35 bg-arena-blue/10 text-blue-100",
     green: "border-arena-green/35 bg-arena-green/10 text-arena-green",
   };
@@ -272,5 +272,5 @@ function SignalMetric({ icon, label, value, tone }: { icon: ReactNode; label: st
 }
 
 function TrackerLine({ icon, label, value }: { icon: ReactNode; label: string; value: string }) {
-  return <div className="flex gap-3 rounded-2xl border border-white/10 bg-black/25 p-3"><span className="mt-0.5 text-arena-cyan">{icon}</span><div><p className="text-xs uppercase tracking-widest text-white/40">{label}</p><p className="text-sm font-semibold text-white/80">{value}</p></div></div>;
+  return <div className="flex gap-3 rounded-2xl border border-white/10 bg-black/25 p-3"><span className="mt-0.5 text-arena-green">{icon}</span><div><p className="text-xs uppercase tracking-widest text-white/40">{label}</p><p className="text-sm font-semibold text-white/80">{value}</p></div></div>;
 }

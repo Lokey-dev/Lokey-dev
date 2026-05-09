@@ -16,6 +16,16 @@ export interface ScrimRoom {
   skill: SkillLevel;
   region: Region;
   paid: boolean;
+  registrationClosesIn: string;
+  registrationOpen: boolean;
+  requiredPlayers: number;
+  playersCheckedIn: number;
+  groupJoinLink: string;
+  oneTimeGroup: string;
+  groupExpiresAt: string;
+  ownerRoomGroup: string;
+  helpdeskDiscordVc: string;
+  paymentState: "Free" | "Locked" | "Ready";
 }
 
 export interface Tournament {
@@ -44,6 +54,10 @@ export interface PlayerProfile {
   reputation: number;
   favoriteGames: Game[];
   badges: string[];
+  ign: string;
+  uid: string;
+  phone: string;
+  identityVerified: boolean;
 }
 
 export interface BracketTeam {
@@ -100,4 +114,16 @@ export interface TrendingMatch {
   viewers: string;
   heat: number;
   status: "Live" | "Starting" | "Final Map";
+}
+
+
+export interface ScrimAccessStep {
+  title: string;
+  description: string;
+  state: "complete" | "active" | "locked";
+}
+
+export interface OwnerRoomPolicy {
+  title: string;
+  description: string;
 }

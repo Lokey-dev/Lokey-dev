@@ -25,7 +25,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-arena-void/70 backdrop-blur-2xl">
       <nav className="container-arena flex h-20 items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-arena-cyan to-arena-purple text-black shadow-neon"><ShieldCheck /></span>
+          <span className="grid h-11 w-11 place-items-center rounded-2xl bg-gradient-to-br from-arena-green to-arena-lime text-black shadow-neon"><ShieldCheck /></span>
           <span className="font-display text-xl font-black tracking-widest">TRXN <span className="neon-text">ARENA</span></span>
         </Link>
         <div className="hidden items-center gap-1 lg:flex">

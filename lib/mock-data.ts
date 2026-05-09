@@ -1,4 +1,4 @@
-import type { BattleRoyaleStanding, BracketMatch, Organizer, PlayerProfile, PlayerStat, ScrimRoom, TeamTrackerStatus, Tournament, TrendingMatch } from "./types";
+import type { BattleRoyaleStanding, BracketMatch, Organizer, OwnerRoomPolicy, PlayerProfile, PlayerStat, ScrimAccessStep, ScrimRoom, TeamTrackerStatus, Tournament, TrendingMatch } from "./types";
 
 export const liveStats = [
   { label: "Active Players", value: "128K+", delta: "+18%" },
@@ -8,12 +8,12 @@ export const liveStats = [
 ];
 
 export const scrims: ScrimRoom[] = [
-  { id: "s1", game: "BGMI", organizer: "Nova Circuit", entryFee: "₹40", prizePool: "₹12,000", startTime: "8:30 PM", slots: { filled: 78, total: 100 }, rating: 4.9, verified: true, format: "Squad", skill: "Semi-Pro", region: "India", paid: true },
-  { id: "s2", game: "Valorant", organizer: "Clutch Labs", entryFee: "Free", prizePool: "XP + VOD", startTime: "9:00 PM", slots: { filled: 8, total: 10 }, rating: 4.8, verified: true, format: "Duo", skill: "Pro", region: "SEA", paid: false },
-  { id: "s3", game: "Free Fire", organizer: "Ignite League", entryFee: "₹25", prizePool: "₹5,000", startTime: "7:45 PM", slots: { filled: 41, total: 48 }, rating: 4.7, verified: true, format: "Squad", skill: "Grinder", region: "India", paid: true },
-  { id: "s4", game: "Call of Duty Mobile", organizer: "Tactical Hub", entryFee: "Free", prizePool: "Rank Points", startTime: "10:15 PM", slots: { filled: 14, total: 20 }, rating: 4.6, verified: false, format: "Solo", skill: "Rookie", region: "MENA", paid: false },
-  { id: "s5", game: "BGMI", organizer: "Apex Scrims", entryFee: "₹60", prizePool: "₹25,000", startTime: "11:00 PM", slots: { filled: 92, total: 100 }, rating: 5.0, verified: true, format: "Squad", skill: "Pro", region: "India", paid: true },
-  { id: "s6", game: "Valorant", organizer: "Spike Factory", entryFee: "₹99", prizePool: "₹18,000", startTime: "6:30 PM", slots: { filled: 6, total: 16 }, rating: 4.8, verified: true, format: "Duo", skill: "Semi-Pro", region: "Europe", paid: true },
+  { id: "s1", game: "BGMI", organizer: "Nova Circuit", entryFee: "₹40", prizePool: "₹12,000", startTime: "8:30 PM", slots: { filled: 78, total: 100 }, rating: 4.9, verified: true, format: "Squad", skill: "Semi-Pro", region: "India", paid: true, registrationClosesIn: "18m 42s", registrationOpen: true, requiredPlayers: 4, playersCheckedIn: 4, groupJoinLink: "trxn.gg/join/nova-b7", oneTimeGroup: "Nova B7 Paid Lobby", groupExpiresAt: "Deletes 15 min after result upload", ownerRoomGroup: "Nova Circuit ID-Pass Vault", helpdeskDiscordVc: "Nova Helpdesk VC #2", paymentState: "Ready" },
+  { id: "s2", game: "Valorant", organizer: "Clutch Labs", entryFee: "Free", prizePool: "XP + VOD", startTime: "9:00 PM", slots: { filled: 8, total: 10 }, rating: 4.8, verified: true, format: "Duo", skill: "Pro", region: "SEA", paid: false, registrationClosesIn: "31m 08s", registrationOpen: true, requiredPlayers: 2, playersCheckedIn: 2, groupJoinLink: "trxn.gg/join/clutch-vc", oneTimeGroup: "Clutch Duo Room", groupExpiresAt: "Deletes when room closes", ownerRoomGroup: "Clutch ID-Pass Drop", helpdeskDiscordVc: "Clutch Labs VC Alpha", paymentState: "Free" },
+  { id: "s3", game: "Free Fire", organizer: "Ignite League", entryFee: "₹25", prizePool: "₹5,000", startTime: "7:45 PM", slots: { filled: 41, total: 48 }, rating: 4.7, verified: true, format: "Squad", skill: "Grinder", region: "India", paid: true, registrationClosesIn: "09m 16s", registrationOpen: true, requiredPlayers: 4, playersCheckedIn: 3, groupJoinLink: "trxn.gg/join/ignite-squad", oneTimeGroup: "Ignite Paid FF Room", groupExpiresAt: "Deletes after final screenshot audit", ownerRoomGroup: "Ignite ID-Pass Hub", helpdeskDiscordVc: "Ignite Support VC", paymentState: "Locked" },
+  { id: "s4", game: "Call of Duty Mobile", organizer: "Tactical Hub", entryFee: "Free", prizePool: "Rank Points", startTime: "10:15 PM", slots: { filled: 14, total: 20 }, rating: 4.6, verified: false, format: "Solo", skill: "Rookie", region: "MENA", paid: false, registrationClosesIn: "Closed", registrationOpen: false, requiredPlayers: 1, playersCheckedIn: 1, groupJoinLink: "trxn.gg/join/tactical-solo", oneTimeGroup: "Tactical Solo Room", groupExpiresAt: "Deleted", ownerRoomGroup: "Tactical ID-Pass Group", helpdeskDiscordVc: "Tactical Hub VC", paymentState: "Free" },
+  { id: "s5", game: "BGMI", organizer: "Apex Scrims", entryFee: "₹60", prizePool: "₹25,000", startTime: "11:00 PM", slots: { filled: 92, total: 100 }, rating: 5.0, verified: true, format: "Squad", skill: "Pro", region: "India", paid: true, registrationClosesIn: "44m 02s", registrationOpen: true, requiredPlayers: 4, playersCheckedIn: 4, groupJoinLink: "trxn.gg/join/apex-pro", oneTimeGroup: "Apex Pro Paid Room", groupExpiresAt: "Deletes when owner ends room", ownerRoomGroup: "Apex ID-Pass Vault", helpdeskDiscordVc: "Apex Claims VC", paymentState: "Ready" },
+  { id: "s6", game: "Valorant", organizer: "Spike Factory", entryFee: "₹99", prizePool: "₹18,000", startTime: "6:30 PM", slots: { filled: 6, total: 16 }, rating: 4.8, verified: true, format: "Duo", skill: "Semi-Pro", region: "Europe", paid: true, registrationClosesIn: "Closed", registrationOpen: false, requiredPlayers: 2, playersCheckedIn: 1, groupJoinLink: "trxn.gg/join/spike-duo", oneTimeGroup: "Spike Factory Paid Duo", groupExpiresAt: "Deleted", ownerRoomGroup: "Spike ID-Pass Room", helpdeskDiscordVc: "Spike EU VC", paymentState: "Locked" },
 ];
 
 export const tournaments: Tournament[] = [
@@ -36,7 +36,26 @@ export const profile: PlayerProfile = {
   reputation: 97,
   favoriteGames: ["Valorant", "BGMI", "Call of Duty Mobile"],
   badges: ["Clutch King", "Verified Captain", "Top 1% Grinder", "No-Scam Trust"],
+  ign: "TRXNxReynaFlux",
+  uid: "UID-7782-4419",
+  phone: "+91 98••• ••777",
+  identityVerified: true,
 };
+
+
+export const scrimAccessSteps: ScrimAccessStep[] = [
+  { title: "Login unlocks live inventory", description: "Authenticated players see every free and paid scrim currently running with live registration timers.", state: "complete" },
+  { title: "Registration window check", description: "Join and payment buttons stay disabled after the registration timer closes.", state: "active" },
+  { title: "Team group verification", description: "Paid squads must have every player logged in through the organizer join link before payment unlocks.", state: "active" },
+  { title: "One-time room access", description: "After payment, TRXN adds the roster to a temporary ID-pass group that expires when the owner closes the room.", state: "locked" },
+];
+
+export const ownerRoomPolicies: OwnerRoomPolicy[] = [
+  { title: "Owner ID-Pass group", description: "Every organizer creates a controlled group for room ID/password drops and match announcements." },
+  { title: "Auto-delete after completion", description: "One-time room groups are removed after tournament completion, result audit, or owner room expiry." },
+  { title: "Player identity lock", description: "Every player must keep the same IGN, UID, and active phone number for no-show and rule-violation handling." },
+  { title: "Discord VC helpdesk", description: "Organizer-specific Discord voice channels handle live disputes, missing players, and urgent support." },
+];
 
 export const recruitmentPosts = [
   { handle: "MaviX", role: "Entry Fragger", game: "Valorant", rank: "Immortal 2", availability: "Night scrims", goal: "Looking for Tier-2 roster" },
